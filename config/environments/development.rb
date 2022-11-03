@@ -30,6 +30,10 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Set for devise purposes
+  # https://www.notion.so/Test-Account-Part-2-b538a9b820ba469990974b706c565e96
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
