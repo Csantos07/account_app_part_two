@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_11_03_204557) do
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.uuid "user", null: false
+    t.uuid "user_id", null: false
     t.string "name"
     t.text "description"
     t.decimal "balance"
