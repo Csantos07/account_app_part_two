@@ -1,7 +1,6 @@
 class CreateAccounts < ActiveRecord::Migration[6.1]
   def change
-    create_table :accounts do |t|
-      t.uuid :user_id, null: false, foreign_key: true
+    create_table :accounts, id: :uuid do |t|
       t.string :name
       t.text :description
       t.decimal :balance
