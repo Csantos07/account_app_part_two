@@ -1,0 +1,20 @@
+.card {
+  background-color: rgb(230, 230, 230);
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: rgb(36, 30, 30);
+}
+
+a:active {
+  text-decoration: none;
+}
