@@ -4,11 +4,41 @@ class AccountsController < ApplicationController
   end
 
   def show
-    # @portfolio_item = Portfolio.find(params[:id])
     @account = Account.find(params[:id])
+  end
+
+  def new
+    @account = Account.new
+  end
+
+  def edit
+    @account = Account.find(params[:id])
+  end
+
+  def create
+    Account.create(
+      name: params[:account][:name], 
+      description: params[:account][:description],
+      balance: params[:account][:balance]
+    )
+    
+    redirect_to action: "index"
+  end
+
+  def update
+    @account = Account.find(params[:id])
+    @account.update(
+      name: params[:account][:name], 
+      description: params[:account][:description],
+      balance: params[:account][:balance]
+    )
+
+    redirect_to action: "index"
   end
 
   def destroy
     Account.destroy(params[:id])
+
+    redirect_to action: "index"
   end
 end

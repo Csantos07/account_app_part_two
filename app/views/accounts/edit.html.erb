@@ -1,6 +1,6 @@
-<h1>New Account</h1>
+<h1>Edit Account</h1>
 
-<%= form_with model: @account, url: accounts_path, method: :post, local: true do |f| %>
+<%= form_with model: @account, url: account_path, method: :patch, local: true do |f| %>
   <div>
     <%= f.text_field :name, placeholder: "Account Name" %><br><br>
   </div>
