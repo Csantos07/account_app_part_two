@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_04_211914) do
+ActiveRecord::Schema.define(version: 2022_11_11_174321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2022_11_04_211914) do
     t.decimal "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "parent_account_id"
+    t.index ["parent_account_id"], name: "index_accounts_on_parent_account_id"
   end
 
   create_table "accounts_users", id: false, force: :cascade do |t|
@@ -42,4 +44,5 @@ ActiveRecord::Schema.define(version: 2022_11_04_211914) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accounts", "accounts", column: "parent_account_id"
 end

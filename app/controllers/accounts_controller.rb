@@ -5,6 +5,7 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
+    @child_accounts = @account.child_accounts
   end
 
   def new
