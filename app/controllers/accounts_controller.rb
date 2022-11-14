@@ -10,6 +10,12 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
+    parent_accounts = Account.all
+    @parent_accounts = [['No Parent', nil]]
+
+    parent_accounts.each do |account|
+      @parent_accounts << [account.name, account.id]
+    end
   end
 
   def edit
@@ -17,10 +23,15 @@ class AccountsController < ApplicationController
   end
 
   def create
+    if params[:account][:parent_account].present?
+      parent_account = Account.find(params[:account][:parent_account])
+    end
+
     Account.create(
       name: params[:account][:name], 
       description: params[:account][:description],
-      balance: params[:account][:balance]
+      balance: params[:account][:balance],
+      parent_account: parent_account
     )
     
     redirect_to action: "index"

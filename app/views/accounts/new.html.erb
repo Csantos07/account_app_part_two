@@ -10,5 +10,9 @@
   <div>
     <%= f.text_area :balance, placeholder: "Account Balance" %><br><br>
   </div>
+
+  <div>
+    <%= f.select :parent_account, @parent_accounts, placeholder: "Parent Account" %><br><br>
+  </div>
   <%= f.submit %>
 <% end %>

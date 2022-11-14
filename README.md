@@ -1,5 +1,6 @@
 # README
 
+-------------------------------------------------------------
 This approach is the has and belongs to many approach which is working.
 
 Just finished crud for accounts.
