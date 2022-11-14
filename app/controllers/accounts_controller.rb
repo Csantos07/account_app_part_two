@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @accounts = Account.all
   end
@@ -31,7 +33,8 @@ class AccountsController < ApplicationController
       name: params[:account][:name], 
       description: params[:account][:description],
       balance: params[:account][:balance],
-      parent_account: parent_account
+      parent_account: parent_account,
+      users: [current_user]
     )
     
     redirect_to action: "index"
