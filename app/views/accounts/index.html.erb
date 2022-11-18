@@ -1,12 +1,12 @@
 <% @accounts.each do |account| %>
-  <%= link_to account_path(account)  do %>
-    <section class="card">
+  <section class="card">
+    <%= link_to account_path(account)  do %>
       <h1><%= account.name %></h1>
       <p>Description: <%= account.description %></p>
       <p>Balance: <%= account.balance %></p>
       <p>Account User: <%= account.users.first.email if account.users.present? %></p>
-    </section>
-  <% end %>
+    <% end %>
+  </section>
 <% end %>
 
 <%= button_to "Create New Account", new_account_path, method: :get %>

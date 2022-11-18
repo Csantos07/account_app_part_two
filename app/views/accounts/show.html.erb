@@ -1,4 +1,4 @@
-<section class="show-card">
+<section class="card">
   <h1><%= @account.name %></h1>
   <p>Description: <%= @account.description %></p>
   <p>Balance: <%= @account.balance %></p>
@@ -7,7 +7,7 @@
 </section>
 
 <% @child_accounts.each do |account| %>
-  <section class="show-card yellow" style="background-color: yellow;">
+  <section class="card" style="background-color: yellow;">
     <h1><%= account.name %></h1>
     <p>Description: <%= account.description %></p>
     <p>Balance: <%= account.balance %></p>
