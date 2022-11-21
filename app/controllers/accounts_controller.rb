@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @accounts = current_user.accounts.all
+    @accounts = current_user.accounts
   end
 
   def show
@@ -13,6 +13,9 @@ class AccountsController < ApplicationController
   def new
     @account = Account.new
     parent_accounts = Account.all
+
+    # TODO
+    # move to a <accounts_helper class="rb"># use in view html erb file</accounts_helper>
     @parent_accounts = [['No Parent', nil]]
 
     parent_accounts.each do |account|
@@ -25,19 +28,22 @@ class AccountsController < ApplicationController
   end
 
   def create
-    if params[:account][:parent_account].present?
-      parent_account = Account.find(params[:account][:parent_account])
-    end
+    # if params[:account][:parent_account].present?
+    #   parent_account = Account.find(params[:account][:parent_account])
+    # end
 
-    Account.create(
-      name: params[:account][:name], 
-      description: params[:account][:description],
-      balance: params[:account][:balance],
-      parent_account: parent_account,
-      users: [current_user]
-    )
+    byebug
+    current_user.accounts.create!(acccount_params)
+
+    # Account.create(
+    #   name: params[:account][:name], 
+    #   description: params[:account][:description],
+    #   balance: params[:account][:balance],
+    #   parent_account: parent_account,
+    #   users: [current_user]
+    # )
     
-    redirect_to action: "index"
+    redirect_to accounts_path
   end
 
   def update
@@ -48,12 +54,18 @@ class AccountsController < ApplicationController
       balance: params[:account][:balance]
     )
 
-    redirect_to action: "index"
+    redirect_to accounts_path
   end
 
   def destroy
     Account.destroy(params[:id])
 
-    redirect_to action: "index"
+    redirect_to accounts_path
+  end
+
+  private
+
+  def acccount_params
+    params.require(:account).permit(:name, :description, :balance, :parent_account_id)
   end
 end

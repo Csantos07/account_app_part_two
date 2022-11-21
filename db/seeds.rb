@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create at least one user
+User.destroy_all
+Account.destroy_all
+
 user_one = User.create!(email: "antcs07@gmail.com", password: "password")
 user_two = User.create!(email: "antcs08@gmail.com", password: "password")
 
-
-# Account.create!(name: "first account", balance: 210000.00, user_id: user_two.id)
-# Account.create!(name: "second account", balance: 210000.00, user_id: user_two.id)
-
-account_one = Account.create!(name: "first account", balance: 210000.00)
-account_two = Account.create!(name: "second account", balance: 210000.00)
-
-user_one.accounts << [account_one, account_two]
+savings = user_one.accounts.create!(name: "Savings", description: "All Personal Savings", balance: 25005.38)
+joint_saving = user_one.accounts.create!(name: "Joint Savings", description: "Savings Between my spouse and I", balance: 100091.00)
+checking = user_one.accounts.create!(name: "Checking", description: "Personal Checking", balance: 605.79)
+joint_checking = user_one.accounts.create!(name: "Joint Checking", description: "Personal Checking", balance: 517.59)
+joint_checking.users << user_two
