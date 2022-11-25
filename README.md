@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I am creating this branch trying to create an account model. 
+I want to try using the generator to make a has and belongs to many
+relationship.
 
-Things you may want to cover:
+I'll start with the has_and_belongs_to_many_approach as opposed 
+to the has_many :through
 
-* Ruby version
+The Generator I ran.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+``` rails g model Account user:references name description:text balance:decimal```
