@@ -1,12 +1,12 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_account, only: [:edit, :update, :show]
 
   def index
     @accounts = current_user.accounts
   end
 
   def show
-    @account = Account.find(params[:id])
     @child_accounts = @account.child_accounts
   end
 
@@ -24,11 +24,10 @@ class AccountsController < ApplicationController
   end
 
   def edit
-    @account = Account.find(params[:id])
   end
 
   def create
-    @account = current_user.accounts.create(acccount_params)
+    @account = current_user.accounts.create(account_params)
 
     if @account.errors.any?
       # drawback of this is when I refresh
@@ -40,12 +39,7 @@ class AccountsController < ApplicationController
   end
 
   def update
-    @account = Account.find(params[:id])
-    @account.update(
-      name: params[:account][:name], 
-      description: params[:account][:description],
-      balance: params[:account][:balance]
-    )
+    @account.update(account_params)
 
     redirect_to accounts_path
   end
@@ -58,7 +52,11 @@ class AccountsController < ApplicationController
 
   private
 
-  def acccount_params
+  def account_params
     params.require(:account).permit(:name, :description, :balance, :parent_account_id, :user_id)
+  end
+
+  def set_account
+    @account = Account.find(params[:id])
   end
 end
