@@ -3,6 +3,8 @@ class Account < ApplicationRecord
   has_many :child_accounts, class_name: 'Account', foreign_key: 'parent_account_id', dependent: :destroy
   has_and_belongs_to_many :users
 
+  validates :name, :description, :balance, presence: true
+  validates :balance, numericality: true, allow_nil: true
   # TODO
   # add validation, make sure accoutn has at least 1 user
 end

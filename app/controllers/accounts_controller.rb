@@ -28,22 +28,15 @@ class AccountsController < ApplicationController
   end
 
   def create
-    # if params[:account][:parent_account].present?
-    #   parent_account = Account.find(params[:account][:parent_account])
-    # end
+    @account = current_user.accounts.create(acccount_params)
 
-    byebug
-    current_user.accounts.create!(acccount_params)
-
-    # Account.create(
-    #   name: params[:account][:name], 
-    #   description: params[:account][:description],
-    #   balance: params[:account][:balance],
-    #   parent_account: parent_account,
-    #   users: [current_user]
-    # )
-    
-    redirect_to accounts_path
+    if @account.errors.any?
+      # drawback of this is when I refresh
+      # we redirect to the index
+      render :new
+    else
+      redirect_to accounts_path
+    end
   end
 
   def update
@@ -66,6 +59,6 @@ class AccountsController < ApplicationController
   private
 
   def acccount_params
-    params.require(:account).permit(:name, :description, :balance, :parent_account_id)
+    params.require(:account).permit(:name, :description, :balance, :parent_account_id, :user_id)
   end
 end
