@@ -20,10 +20,7 @@
     <%= f.text_area :balance, placeholder: "Account Balance" %><br><br>
   </div>
 
-  <% if @parent_accounts %>
-    <div>
-      <%= f.select :parent_account_id, @parent_accounts, placeholder: "Parent Account" %><br><br>
-    </div>
-  <% end %>
+  <%= display_parent_accounts(f) %>
+  
   <%= f.submit %>
 <% end %>

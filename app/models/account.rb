@@ -5,6 +5,9 @@ class Account < ApplicationRecord
 
   validates :name, :description, :balance, presence: true
   validates :balance, numericality: true, allow_nil: true
-  # TODO
-  # add validation, make sure accoutn has at least 1 user
+  validate :at_least_one_user
+  
+  def at_least_one_user
+     errors.add(:users, "There must be at least one user assigned to the account") if users.empty?
+  end
 end

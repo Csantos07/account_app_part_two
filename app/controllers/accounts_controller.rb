@@ -12,15 +12,6 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
-    parent_accounts = Account.all
-
-    # TODO
-    # move to a <accounts_helper class="rb"># use in view html erb file</accounts_helper>
-    @parent_accounts = [['No Parent', nil]]
-
-    parent_accounts.each do |account|
-      @parent_accounts << [account.name, account.id]
-    end
   end
 
   def edit
@@ -28,6 +19,8 @@ class AccountsController < ApplicationController
 
   def create
     @account = current_user.accounts.create(account_params)
+    @account.users << current_user
+    @account.save
 
     if @account.errors.any?
       # drawback of this is when I refresh
