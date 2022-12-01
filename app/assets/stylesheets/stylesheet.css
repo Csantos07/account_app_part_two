@@ -1,10 +1,27 @@
+* {
+  /* border: 1px solid red; */
+}
+
+h1,
+p {
+  /* border: 1px solid red; */
+  margin: 0;
+}
+
+.flex-box {
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
+}
+
 .card {
   /* background-color: rgb(230, 230, 230); */
   padding: 10px;
   margin: 10px;
-  width: 300px;
+  width: 31%;
   height: 250px;
   border-radius: 5px;
+  /* border: 1px solid red; */
 }
 
 a:link,

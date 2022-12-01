@@ -1,0 +1,16 @@
+<section class="flex-box">
+  <% accounts.each do |account| %>
+    <section class="card">
+      <%= link_to account_path(account) do %>
+        <h3><%= account.name %></h3>
+        <p>Description: <%= account.description %></p>
+        <p>Balance: <%= account.balance %></p>
+        <p>Account Users: 
+        <% account.users.each do |user|  %>
+          <p><%= user.email %></p>
+        <% end %>
+        </p>
+      <% end %>
+    </section>
+  <% end %>
+</section>

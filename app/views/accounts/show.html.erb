@@ -6,14 +6,6 @@
   <%= button_to "Delete", @account, :method => :delete %>
 </section>
 
-<% @child_accounts.each do |account| %>
-  <section class="card" style="background-color: yellow;">
-    <h1><%= account.name %></h1>
-    <p>Description: <%= account.description %></p>
-    <p>Balance: <%= account.balance %></p>
-    <%= button_to "Edit", edit_account_path(account), method: :get %>
-    <%= button_to "Delete", account, method: :delete %>
-  </section>
-<% end %>
+<%= render 'accounts', accounts: @child_accounts %>
 
-<%= button_to "Account", accounts_path, :method => :get %>
+<%= button_to "Index", accounts_path, :method => :get %>
