@@ -36,3 +36,18 @@ Custom Validation to check that their is at least one user assigned to account.
 ---
 
 Updated seeds. (they broke after creating the validations. code seems verbose. would like to refactor)
+
+---
+
+Transaction Migration and Model Created.
+
+- [ ] Create views for transactions
+- [ ] Follow the figma for how transaction and form should look for accounts
+
+---
+
+Create a branch to play with bootstrap and style.
+`address-rakib-comment-01-transaction-model` ->
+`address-rakib-comment-01-transaction-model-bootstrap-&-css`
+
+---
