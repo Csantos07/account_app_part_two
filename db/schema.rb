@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_11_174321) do
+ActiveRecord::Schema.define(version: 2022_11_29_235557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 2022_11_11_174321) do
     t.uuid "account_id"
     t.index ["account_id"], name: "index_accounts_users_on_account_id"
     t.index ["user_id"], name: "index_accounts_users_on_user_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.decimal "balance"
+    t.string "name"
+    t.string "type"
+    t.string "date"
+    t.string "recurring"
+    t.uuid "user_id"
+    t.uuid "account_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_transactions_on_account_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
