@@ -1,3 +1,11 @@
-<%= render 'accounts', accounts: @accounts %>
-
-<%= button_to "Create New Account", new_account_path, method: :get %>
+<div class="flex-for-two">
+  <div class="container-a">
+    <%= render 'accounts', accounts: @accounts %>
+  </div>
+  <div class="container-b">
+    <%= form_with do |form| %>
+      <%= form.date_select :birth_date %>
+      <%= form.submit "Forecast" %>
+    <% end %>
+  </div>
+</div>

@@ -14,10 +14,29 @@ p {
   /* border: 1px solid red; */
 }
 
+/* FORMATTING FOR FORM FORECAST ON ACCOUNTS */
+.flex-for-two {
+  display: flex;
+  /* justify-content: space-around; */
+  margin: 0 100px;
+}
+
+.container-a,
+.container-b {
+  border: 1px solid red;
+  width: 50%;
+}
+
+.container-b {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* FORMATTING FOR FORM FORECAST ON ACCOUNTS */
 .card {
   /* background-color: rgb(230, 230, 230); */
   padding: 10px;
-  margin: 10px;
+  margin: 5px;
   width: 31%;
   height: 250px;
   border-radius: 5px;
