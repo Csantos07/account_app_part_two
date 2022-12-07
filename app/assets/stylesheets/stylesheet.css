@@ -1,29 +1,24 @@
-* {
-  /* border: 1px solid red; */
-}
-
 h1,
 p {
-  /* border: 1px solid red; */
   margin: 0;
 }
 
+/* Possibly rename to */
+/* .cards-flex-container */
 .flex-box {
   display: flex;
   flex-wrap: wrap;
-  /* border: 1px solid red; */
+  justify-content: space-between;
 }
 
-/* FORMATTING FOR FORM FORECAST ON ACCOUNTS */
+/* FORMATTING FOR FORM FORECAST ON ACCOUNTS PAGE */
 .flex-for-two {
   display: flex;
-  /* justify-content: space-around; */
   margin: 0 100px;
 }
 
 .container-a,
 .container-b {
-  border: 1px solid red;
   width: 50%;
 }
 
@@ -31,16 +26,6 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-/* FORMATTING FOR FORM FORECAST ON ACCOUNTS */
-.card {
-  /* background-color: rgb(230, 230, 230); */
-  padding: 10px;
-  margin: 5px;
-  width: 31%;
-  height: 250px;
-  border-radius: 5px;
-  /* border: 1px solid red; */
 }
 
 a:link,
@@ -53,4 +38,42 @@ a:active {
 
 a:active {
   text-decoration: none;
+}
+
+.card {
+  width: 32%;
+  position: relative;
+}
+
+.card-button {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-body {
+  margin-bottom: 1.5rem;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 2rem;
+}
+
+.red {
+  background-color: red;
+  color: white;
+}
+
+.yellow {
+  background-color: yellow;
 }
