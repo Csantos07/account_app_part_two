@@ -6,13 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Create at least one user
+# Destroy Alll Users
 User.destroy_all
 Account.destroy_all
+Transaction.destroy_all
 
+# ----------------------------------------------------------------
+# Create Two Users
 user_one = User.create!(email: "antcs07@gmail.com", password: "password")
 user_two = User.create!(email: "antcs08@gmail.com", password: "password")
 
+# Create accounts and assign users
 savings = user_one.accounts.new(name: "Savings", description: "All Personal Savings", balance: 25005.38)
 joint_saving = user_one.accounts.new(name: "Joint Savings", description: "Savings Between my spouse and I", balance: 100091.00)
 checking = user_one.accounts.new(name: "Checking", description: "Personal Checking", balance: 605.79)
@@ -25,7 +29,12 @@ checking.users << user_one
 joint_checking.users << user_one
 joint_checking.users << user_two
 
+# Save changes made to accounts (ie: assigning users)
 savings.save
 joint_saving.save
 checking.save
 joint_checking.save
+# ----------------------------------------------------------------
+# Create Transactions
+Transaction.create!(balance: 1400, name: 'Mortgage', user_id: user_one.id, account_id: savings.id)
+Transaction.create!(balance: 400, name: 'Trip To Barbados', user_id: user_one.id, account_id: savings.id)

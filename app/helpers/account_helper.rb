@@ -12,4 +12,18 @@ module AccountHelper
       render inline: "<div><%= @form_object.select :parent_account_id, @parent_accounts, placeholder: 'Parent Account' %><br><br></div>"
     end
   end
+
+  def display_accounts(form_object)
+    accounts = Account.all
+    @accounts = [['Select an account', nil]]
+    @form_object = form_object
+
+    accounts.each do |account|
+      @accounts << [account.name, account.id]
+    end
+
+    if @accounts
+      render inline: "<div><%= @form_object.select :account_id, @accounts, placeholder: 'Account' %><br><br></div>"
+    end
+  end
 end

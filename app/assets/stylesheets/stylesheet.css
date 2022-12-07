@@ -43,6 +43,7 @@ a:active {
 .card {
   width: 32%;
   position: relative;
+  margin-bottom: 2rem;
 }
 
 .card-button {
