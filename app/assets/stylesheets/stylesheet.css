@@ -75,6 +75,10 @@ a:active {
   color: white;
 }
 
+.card-button.red {
+  color: white;
+}
+
 .yellow {
   background-color: yellow;
 }

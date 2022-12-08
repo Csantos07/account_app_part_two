@@ -3,16 +3,17 @@
 <div class="flex-box">
   <% @transactions.each do |transaction| %>
     <div class="card">
-      <%= link_to transaction_path(transaction) do %>
+      <!-- <%= link_to transaction_path(transaction) do %> -->
         <div class="card-body">
           <h5 class="card-title"><%= transaction.name %></h5>
 
           <p class="card-text">Balance: <%= transaction.balance %></p>
+          <p class="card-text">Date:</p>
         </div>
-      <% end %>
+      <!-- <% end %> -->
       <div class="card-footer bg-transparent">
-        <div class="card-button yellow">Edit</div>
-        <div class="card-button red">Delete</div>
+        <%= link_to "Edit", edit_transaction_path(transaction), form_class: "card-button yellow", class: "card-button yellow"  %>
+        <%= link_to "Destroy", transaction_path(transaction), method: :delete, form_class: "card-button red", class: "card-button red"  %>
       </div>
     </div>
   <% end %>
