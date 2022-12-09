@@ -1,4 +1,13 @@
 <h1>New Account</h1>
+<% if @account.errors.any? %>
+  <div class="form_error">
+    <ul>
+      <% @account.errors.full_messages.each do |msg| %>
+        <li><%='Error: ' +  msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_with model: @account, url: accounts_path, method: :post, local: true do |f| %>
   <div>
@@ -11,8 +20,7 @@
     <%= f.text_area :balance, placeholder: "Account Balance" %><br><br>
   </div>
 
-  <div>
-    <%= f.select :parent_account_id, @parent_accounts, placeholder: "Parent Account" %><br><br>
-  </div>
+  <%= display_parent_accounts(f) %>
+  
   <%= f.submit %>
 <% end %>

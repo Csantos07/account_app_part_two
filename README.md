@@ -1,20 +1,38 @@
 # README
 
--------------------------------------------------------------
-This approach is the has and belongs to many approach which is working.
+This can be merged into account-model-hbtm_no_extra_model-self-relationhip-exp.
 
-Just finished crud for accounts.
-My next step is to create a relationship between Accounts and child accounts.
+- [ ] rename accounts_users to accounts_user
+  - This actually looks to be the convention according to:
+    https://stackoverflow.com/questions/11590469/rails-naming-convention-for-join-table
+- [x] make validations
+- [x] reinforce strong params on update
+- [x] before action on setting account
+- [x] make a helper to display a list of parents
+- [ ] finish transaction model
 
-Things I would like to fix. Tech Debt: I feel as though I am specifiyng the method to helper paths more than I need to.
--------------------------------------------------------------
-I am creating this branch trying to create an account model. 
-I want to try using the generator to make a has and belongs to many
-relationship.
+---
 
-I'll start with the has_and_belongs_to_many_approach as opposed 
-to the has_many :through
+Validations made for account
 
-The Generator I ran.
+- :name, :description, :balance, presence: true
+- :balance, numericality: true
+- :users, at_least_one_user
 
-``` rails g model Account user:references name description:text balance:decimal```
+Validations for user is handled by devise
+
+---
+
+Strip Whitelisted strong params. Lets do this for update as well.
+
+---
+
+Display Errors for accounts
+
+---
+
+Custom Validation to check that their is at least one user assigned to account.
+
+---
+
+Updated seeds. (they broke after creating the validations. code seems verbose. would like to refactor)
