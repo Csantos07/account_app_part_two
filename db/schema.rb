@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_11_29_235557) do
     t.decimal "balance"
     t.string "name"
     t.string "type"
-    t.string "date"
+    t.date "date"
     t.string "recurring"
     t.uuid "user_id"
     t.uuid "account_id"

@@ -3,8 +3,10 @@
     <%= render 'accounts', accounts: @accounts %>
   </div>
   <div class="container-b">
-    <%= form_with do |form| %>
-      <%= form.date_select :birth_date %>
+    <%= form_with url: forecast_estimate_url, method: :get do |form| %>
+      <!-- <%= form.date_select :date %> -->
+      <%# TODO %>
+        <%= form.date_field :date %>
       <%= form.submit "Forecast" %>
     <% end %>
   </div>

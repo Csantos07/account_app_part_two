@@ -36,5 +36,5 @@ checking.save
 joint_checking.save
 # ----------------------------------------------------------------
 # Create Transactions
-Transaction.create!(balance: 1400, name: 'Mortgage', user_id: user_one.id, account_id: savings.id)
-Transaction.create!(balance: 400, name: 'Trip To Barbados', user_id: user_one.id, account_id: savings.id)
+Transaction.create!(balance: 1400, name: 'Mortgage', user_id: user_one.id, account_id: savings.id, date: Date.today.beginning_of_month)
+Transaction.create!(balance: 400, name: 'Trip To Barbados', user_id: user_one.id, account_id: savings.id, date: Date.today.beginning_of_month)

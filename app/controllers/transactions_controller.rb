@@ -9,8 +9,17 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new
   end
 
+  # TODO
   def create
-    @transaction = current_user.transactions.create!(transaction_params)
+    @transaction = current_user.transactions.new(transaction_params)
+    year = transaction_params["date(1i)"].to_i
+    month = transaction_params["date(2i)"].to_i
+    day = transaction_params["date(3i)"].to_i
+
+    date = Date.parse("#{year}-#{month}-#{day}")
+    @transaction.date = date
+    @transaction.save!
+
     redirect_to transactions_path
   end
 

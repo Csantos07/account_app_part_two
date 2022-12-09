@@ -1,8 +1,19 @@
 # README
 
+crud-transaction-model-and-views
+
+What I want to do with this PR is to get a simple rudimentary version of forecast working.
+
+We got a simple version working with one account.
+Definitely want to check the logic on when to process the transaction on the month.
+
+---
+
 Applying bootstrap styles to account cards.
 `sandbox` -> `address-rakib-comment-01-transaction-model-bootstrap-and-css`
+
 ---
+
 This can be merged into account-model-hbtm_no_extra_model-self-relationhip-exp.
 
 - [ ] rename accounts_users to accounts_user
