@@ -2,40 +2,78 @@
 class ForecastController < ApplicationController
   def estimate
     @date_to_forecast = Date.parse(params[:date])
-
     @account_to_forecast = current_user.accounts.find_by(name: "Savings")
-    @transaction = @account_to_forecast.transactions.first
-    @total_forcast_expenses = calculate_total_expenses(@date_to_forecast, @transaction)
-    @balance_at_forecast = @account_to_forecast.balance - @total_forcast_expenses
-
-    # should return something like all the updated transactions or just a single updated transaction
-    # we will do a batch version
+    @transaction = @account_to_forecast.transactions.find_by(name: "Mortgage")
+    @transaction, @total_forcasted_balance = calculate_forecasted_transaction_total(@date_to_forecast, @transaction)
+    @balance_at_forecast = @account_to_forecast.balance - @total_forcasted_balance
   end
 
-  def calculate_total_expenses(date_to_forecast, transaction)
-    date_to_forecast = date_to_forecast
-    distance_between_dates = nil
-    years_passed = nil
-    months_passed = nil
+  def calculate_forecasted_transaction_total(date_to_forecast, transaction)
+    @transaction_count = 0
+    months_passed = 0
     transaction_date = transaction.date
+    forecasted_balance = 0
 
-    if date_to_forecast.year >= transaction_date.year
-      distance_between_dates = date_to_forecast - transaction_date
-      years_passed = (distance_between_dates.to_i) / 365
-        months_passed = (date_to_forecast.year * 12 + date_to_forecast.month) - (transaction_date.year * 12 + transaction_date.month)
-        months_passed += 1
-        unless date_to_forecast.day <= transaction_date.day
-          months_passed -= 1
-        end
+    if forecast_date_and_current_date_share_month? && 
+       forecast_day_is_greater_than_or_equal_to_transaction_day? &&
+       current_date_precedes_transaction_date?
+       
+      @transaction_count += 1
     end
-    byebug
-    if months_passed != nil && months_passed != 0
-      times_to_run_transaction = months_passed
+
+    if forecast_date_is_months_away?
+      months_passed = 
+        (date_to_forecast.year * 12 + date_to_forecast.month) - (transaction_date.year * 12 + transaction_date.month)
+      
+      if !forecast_date_precedes_transaction_date?
+        @transaction_count += 1
+      end
+
+      if !current_date_precedes_transaction_date?
+        @transaction_count -= 1
+      end
     end
-    if times_to_run_transaction > 0
-      transaction.balance * times_to_run_transaction
-    else
-      0
+
+    @transaction_count += months_passed
+
+    if @transaction_count > 0
+      forecasted_balance = transaction.balance * @transaction_count
     end
+    
+    [transaction, forecasted_balance] 
+  end
+
+  private
+
+  def forecast_date_and_current_date_share_month?
+    if @date_to_forecast.year == Date.today.year &&
+       @date_to_forecast.month == Date.today.month
+        return true
+    end
+  end
+
+  def forecast_day_is_greater_than_or_equal_to_transaction_day?
+    if @date_to_forecast.day >= @transaction.date.day
+      return true
+    end
+  end
+
+  def forecast_date_is_months_away?
+    if (@date_to_forecast.year > Date.today.year)
+       return true
+    end
+
+    if (@date_to_forecast.year == Date.today.year &&
+       @date_to_forecast.month > Date.today.month)
+       return true
+    end
+  end
+
+  def current_date_precedes_transaction_date?
+    Date.today.day < @transaction.date.day
+  end
+
+  def forecast_date_precedes_transaction_date?
+    @date_to_forecast.day < @transaction.date.day
   end
 end
