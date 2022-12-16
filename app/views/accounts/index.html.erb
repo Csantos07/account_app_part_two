@@ -1,6 +1,6 @@
 <div class="flex-for-two">
   <div class="container-a">
-    <%= render 'accounts', accounts: @accounts %>
+    <%= render 'accounts/accounts', accounts: @accounts %>
   </div>
   <div class="container-b">
     <%= form_with url: forecast_estimate_url, method: :get do |form| %>

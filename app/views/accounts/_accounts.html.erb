@@ -5,7 +5,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= account.name %></h5>
           <p class="card-text">Description: <%= account.description %></p>
-          <p class="card-text">Balance: <%= account.balance %></p>
+          <p class="card-text">Balance: <%= number_to_currency(account.balance) %></p>
           <p class="card-text">Account Users: 
             <% account.users.each do |user|  %>
               <p class="card-text"><%= user.email %></p>
@@ -13,7 +13,7 @@
           </p>
         </div>
       <% end %>
-      <div class="card-footer bg-transparent border-success">
+      <div class="card-footer bg-transparent">
         <div class="card-button yellow">Edit</div>
         <div class="card-button red">Delete</div>
       </div>

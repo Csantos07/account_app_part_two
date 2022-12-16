@@ -1,6 +1,11 @@
 h1,
+h5,
 p {
   margin: 0;
+}
+
+h5.card-title {
+  margin-bottom: 0;
 }
 
 /* Possibly rename to */
@@ -8,13 +13,12 @@ p {
 .flex-box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 0.4rem;
 }
 
 /* FORMATTING FOR FORM FORECAST ON ACCOUNTS PAGE */
 .flex-for-two {
   display: flex;
-  /* margin: 0 100px; */
 }
 
 .container-a {
