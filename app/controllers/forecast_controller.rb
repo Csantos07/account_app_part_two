@@ -24,6 +24,13 @@ class ForecastController < ApplicationController
 
     @accounts << forecasted_account
 
+    # This code is simply here to put some other accounts on the views
+    current_user.accounts.each do |account|
+      if account.name != "Savings"
+        @accounts << account
+      end
+    end
+
     render 'accounts/index'
   end
 
