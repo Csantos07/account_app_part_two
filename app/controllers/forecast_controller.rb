@@ -9,7 +9,7 @@ class ForecastController < ApplicationController
     @transactions = @accounts_to_forecast[0].transactions
     @transaction = @transactions[0]
     @total_forcasted_balance, @transaction_count = 
-      CalculateForecast.call(@date_to_forecast, @transaction)
+      ForecastAccountTransactionService.call(@date_to_forecast, @transaction)
 
     @balance_at_forecast = @accounts_to_forecast[0].balance - @total_forcasted_balance
     

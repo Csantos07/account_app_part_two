@@ -19,6 +19,8 @@ Todo:
     account
     - A class or an ostruct
 
+In this commit: 
+I updated the calculating of the transaction logic into a service.
 ---
 What I want to do with this PR is to get a simple rudimentary version of forecast working.
 
