@@ -17,7 +17,7 @@ user_one = User.create!(email: "antcs07@gmail.com", password: "password")
 user_two = User.create!(email: "antcs08@gmail.com", password: "password")
 
 # Create accounts and assign users
-savings = user_one.accounts.new(name: "Savings", description: "All Personal Savings", balance: 25005.38)
+savings = user_one.accounts.new(name: "Savings", description: "All Personal Savings", balance: 22_793.43)
 joint_saving = user_one.accounts.new(name: "Joint Savings", description: "Savings Between my spouse and I", balance: 100091.00)
 checking = user_one.accounts.new(name: "Checking", description: "Personal Checking", balance: 605.79)
 joint_checking = user_one.accounts.new(name: "Joint Checking", description: "Personal Checking", balance: 517.59)
@@ -37,6 +37,7 @@ joint_checking.save
 # ----------------------------------------------------------------
 # Create Transactions
 # Transaction.create!(balance: 1400, name: 'Mortgage', user_id: user_one.id, account_id: savings.id, date: Date.today.beginning_of_month)
-Transaction.create!(balance: 1400, name: 'Mortgage', user_id: user_one.id, account_id: savings.id, date: Date.parse("2022-12-17"))
+Transaction.create!(balance: 711, name: 'Bills', user_id: user_one.id, account_id: savings.id, date: Date.parse("2022-12-7"))
+Transaction.create!(balance: 801, name: 'Mortgage', user_id: user_one.id, account_id: savings.id, date: Date.parse("2022-12-22"))
 # date = Date.parse("#{year}-#{month}-#{day}")
 Transaction.create!(balance: 400, name: 'Trip To Barbados', user_id: user_one.id, account_id: savings.id, date: Date.today.beginning_of_month)
