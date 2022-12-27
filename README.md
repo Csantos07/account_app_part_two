@@ -2,15 +2,16 @@
 
 crud-transaction-model-and-views
 
-12.16.22 
+12.27.22 
 At this point we have the forecast functionality hardcoded for 
 
 one account: Savings
-one transaction: Mortgage
+many transactions: Mortgage & Bills
 
 Todo:
-- Create a couple of other transactions under savings.
-  - Make sure all transactions are performed as expected.
+
+- [x] Create a couple of other transactions under savings.
+  - [x] Make sure all transactions are performed as expected.
 - Create transactions on a seperate account.
   - Checking: Gym Membership or Credit Card
 - Create a view for forecast
@@ -20,7 +21,8 @@ Todo:
     - A class or an ostruct
 
 In this commit: 
-I updated the calculating of the transaction logic into a service.
+We are forecasting an account with many transactions.
+
 ---
 What I want to do with this PR is to get a simple rudimentary version of forecast working.
 
