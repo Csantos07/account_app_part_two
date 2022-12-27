@@ -39,5 +39,6 @@ joint_checking.save
 # Transaction.create!(balance: 1400, name: 'Mortgage', user_id: user_one.id, account_id: savings.id, date: Date.today.beginning_of_month)
 Transaction.create!(balance: 711, name: 'Bills', user_id: user_one.id, account_id: savings.id, date: Date.parse("2022-12-7"))
 Transaction.create!(balance: 801, name: 'Mortgage', user_id: user_one.id, account_id: savings.id, date: Date.parse("2022-12-22"))
+Transaction.create!(balance: 100, name: 'Rakib', user_id: user_one.id, account_id: savings.id, date: Date.parse("2022-12-10"))
 # date = Date.parse("#{year}-#{month}-#{day}")
 Transaction.create!(balance: 400, name: 'Trip To Barbados', user_id: user_one.id, account_id: savings.id, date: Date.today.beginning_of_month)

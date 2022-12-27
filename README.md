@@ -2,6 +2,27 @@
 
 crud-transaction-model-and-views
 
+12.27.22 Part 2
+At this point we have the forecast functionality hardcoded for 
+
+one account: Savings
+many transactions: Mortgage, Bills, Rakib, and Trip to Barbados
+
+Todo:
+
+- [x] Create a couple of other transactions under savings.
+  - [x] Make sure all transactions are performed as expected.
+- Create transactions on a seperate account.
+  - Checking: Gym Membership or Credit Card
+- Create a view for forecast
+  - Should display all accounts with forecasted balance and previous info
+  - [x] Create a temporary memory object that representst the new forecasted       
+    account
+    - [x] A class or an ostruct
+
+In this commit: 
+We created two new models: ForecastedAccount & ForecastedTransaction
+---
 12.27.22 
 At this point we have the forecast functionality hardcoded for 
 
@@ -23,6 +44,23 @@ Todo:
 In this commit: 
 We are forecasting an account with many transactions.
 
+---
+12.16.22 
+At this point we have the forecast functionality hardcoded for 
+
+one account: Savings
+one transaction: Mortgage
+
+Todo:
+- Create a couple of other transactions under savings.
+  - Make sure all transactions are performed as expected.
+- Create transactions on a seperate account.
+  - Checking: Gym Membership or Credit Card
+- Create a view for forecast
+  - Should display all accounts with forecasted balance and previous info
+  - Create a temporary memory object that representst the new forecasted       
+    account
+    - A class or an ostruct
 ---
 What I want to do with this PR is to get a simple rudimentary version of forecast working.
 
