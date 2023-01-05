@@ -27,3 +27,11 @@ Things you may want to cover:
 * Deployment instructions
 - Will be deployed using heroku or amazon
 
+## Staging Branch
+
+This branch will serve as a place to merge large commit's before merging to main.
+
+Impetus: 
+- I've strayed away from main without making any PR's or Merges.
+- I want a way to review code without it being so permanent.
+- I want the first PR to be as easy to review as possible.
