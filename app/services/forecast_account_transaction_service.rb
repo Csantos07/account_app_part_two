@@ -24,7 +24,7 @@ class ForecastAccountTransactionService
 
     if forecast_date_and_current_date_share_month?(date_to_forecast) && 
        forecast_day_is_greater_than_or_equal_to_transaction_day?(date_to_forecast, transaction) &&
-       current_date_precedes_transaction_date?(transaction)
+       current_date_precedes_transaction_day?(transaction)
        
       transaction_count += 1
     end
@@ -37,7 +37,7 @@ class ForecastAccountTransactionService
         transaction_count += 1
       end
 
-      if !current_date_precedes_transaction_date?(transaction)
+      if !current_date_precedes_transaction_day?(transaction) && transaction_is_within_forecast?(transaction, date_to_forecast)
         transaction_count -= 1
       end
     end
@@ -77,8 +77,14 @@ class ForecastAccountTransactionService
     end
   end
 
-  def self.current_date_precedes_transaction_date?(transaction)
+  def self.current_date_precedes_transaction_day?(transaction)
     Date.today.day < transaction.date.day
+  end
+
+  def self.transaction_is_within_forecast?(transaction, date_to_forecast)
+    if date_to_forecast > transaction.date
+        return true
+    end
   end
 
   def self.forecast_date_precedes_transaction_date?(date_to_forecast, transaction)

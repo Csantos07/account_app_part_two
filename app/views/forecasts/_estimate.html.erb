@@ -1,18 +1,18 @@
 <%# TODO %>
-<h1>Forecast Estimate for <%= @accounts_to_forecast[0].name %></h1>
-<h5 class="card-title">Original: <%= number_to_currency(@accounts_to_forecast[0].balance)  %></h5>
-<h5 class="card-title">Forecast: <%= number_to_currency(@balance_at_forecast) %></h5><br><br>
+<h1>Forecast Estimate for <%= account.name %></h1><br>
+<h5 class="card-title">Original: <%= number_to_currency(account.original_balance)  %></h5>
+<h5 class="card-title">Forecast: <%= number_to_currency(account.balance_at_forecast) %></h5><br>
+<h5 class="card-title">Current Date: <%= Date.today.strftime('%m/%d/%Y') %></h5>
+<h5 class="card-title">Forecast Date <%= @forecast_date.strftime('%m/%d/%Y') %></h5><br>
 
 
 <div class="flex-box">
-  <% @forecasted_transactions.each do  |transaction| %>
+  <% account.transactions.each do  |transaction| %>
     <div class="card">
         <div class="card-body">
           <h4>Transaction: <%= transaction.name %></h4>
           <h5 class="card-title">Balance: <%= number_to_currency(transaction.balance) %></h5>
           <h5 class="card-title">Transaction Date: <%= transaction.date.strftime('%m/%d/%Y') %></h5>
-          <h5 class="card-title">Forecast Date <%= @forecast_date.strftime('%m/%d/%Y') %></h5>
-          <h5 class="card-title">Current Date: <%= Date.today.strftime('%m/%d/%Y') %></h5><br>
 
           <p class="card-text">Transaction Amount Total: <%= number_to_currency(transaction.forecasted_total) %></p>
           <p class="card-text">Transaction Count: <%= transaction.count %></p>
@@ -21,4 +21,3 @@
   <% end %>
 </div>
 
-<%= button_to "Create New transaction", new_transaction_path, method: :get %>

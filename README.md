@@ -1,21 +1,37 @@
 # README
-
 crud-transaction-model-and-views
 
+## 1.5.23
+
+### In this commit: 
+- We are able to forecast on multiple transactions as well as multiple accounts.
+- Updated `forecast_controller` to `forecasts_controller`.
+- Added an array of `transactions` to the `ForecastedAccount` model.
+- Created a Partial for estimate view. (may want to rename the view)
+- New methods: 
+  - `current_date_precedes_transaction_day?`
+  - `transaction_is_within_forecast?`
+
+### Next Steps:
+  - [ ] Create clarity in forecast_account_transaction_service logic
+    - [ ] Create tests to refactor with confidence.
+  - [ ] Clean the forecasts_controller.
+    - [ ] Remove uncecessary instance variablles.
+---
 12.27.22 Part 2
 At this point we have the forecast functionality hardcoded for 
 
-one account: Savings
-many transactions: Mortgage, Bills, Rakib, and Trip to Barbados
+  - one account: Savings
+  - many transactions: Mortgage, Bills, Rakib, and Trip to Barbados
 
 Todo:
 
 - [x] Create a couple of other transactions under savings.
   - [x] Make sure all transactions are performed as expected.
-- Create transactions on a seperate account.
-  - Checking: Gym Membership or Credit Card
-- Create a view for forecast
-  - Should display all accounts with forecasted balance and previous info
+- [x] Create transactions on a seperate account.
+  - [x] Checking: Gym Membership or Credit Card
+- [x] Create a view for forecast
+  - [x] Should display all accounts with forecasted balance and previous info
   - [x] Create a temporary memory object that representst the new forecasted       
     account
     - [x] A class or an ostruct
