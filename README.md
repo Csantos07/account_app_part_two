@@ -38,6 +38,7 @@ Todo:
 
 In this commit: 
 We created two new models: ForecastedAccount & ForecastedTransaction
+
 ---
 12.27.22 
 At this point we have the forecast functionality hardcoded for 
