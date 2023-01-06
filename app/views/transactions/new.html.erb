@@ -1,0 +1,30 @@
+<h1>New Transaction</h1>
+<% if @transaction.errors.any? %>
+  <div class="form_error">
+    <ul>
+      <% @transaction.errors.full_messages.each do |msg| %>
+        <li><%='Error: ' +  msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @transaction, url: transactions_path, method: :post, local: true do |f| %>
+  <div>
+    <%= f.text_field :name, placeholder: "transaction Name" %><br><br>
+  </div>
+
+  <div>
+    <%= f.text_area :balance, placeholder: "transaction Balance" %><br><br>
+  </div>
+
+  <div>
+    <%= f.date_select :date %>
+  </div>
+
+  <%= display_accounts(f) %>
+
+
+  
+  <%= f.submit %>
+<% end %>

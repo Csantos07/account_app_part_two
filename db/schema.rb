@@ -10,12 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_03_170411) do
+ActiveRecord::Schema.define(version: 2022_11_29_235557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
+  create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "balance"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.uuid "parent_account_id"
+    t.index ["parent_account_id"], name: "index_accounts_on_parent_account_id"
+  end
+
+  create_table "accounts_users", id: false, force: :cascade do |t|
+    t.uuid "user_id"
+    t.uuid "account_id"
+    t.index ["account_id"], name: "index_accounts_users_on_account_id"
+    t.index ["user_id"], name: "index_accounts_users_on_user_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.decimal "balance"
+    t.string "name"
+    t.string "type"
+    t.date "date"
+    t.string "recurring"
+    t.uuid "user_id"
+    t.uuid "account_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_transactions_on_account_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -27,4 +58,5 @@ ActiveRecord::Schema.define(version: 2022_11_03_170411) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accounts", "accounts", column: "parent_account_id"
 end

@@ -1,0 +1,3 @@
+<%#= render "forecasts/estimate.html.erb", @accounts %>
+<%= render partial: "estimate", collection: @accounts, as: :account%>
+<%= button_to "Create New transaction", new_transaction_path, method: :get %>

@@ -1,0 +1,16 @@
+<h1>Edit Account</h1>
+
+<%= form_with model: @account, url: account_path, method: :patch, local: true do |f| %>
+  <div>
+    <%= f.text_field :name, placeholder: "Account Name" %><br><br>
+  </div>
+  <div>
+    <%= f.text_area :description, placeholder: "Account Description" %><br><br>
+  </div>
+  <div>
+    <%= f.text_area :balance, placeholder: "Account Balance" %><br><br>
+  </div>
+  <%= f.submit %>
+<% end %>
+
+<%# Eventually I would like js to handle this within the card %>

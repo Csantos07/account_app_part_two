@@ -1,0 +1,13 @@
+<div class="flex-for-two">
+  <div class="container-a">
+    <%= render 'accounts/accounts', accounts: @accounts %>
+  </div>
+  <div class="container-b">
+    <%= form_with url: forecasts_url, method: :get do |form| %>
+      <!-- <%= form.date_select :date %> -->
+      <%# TODO %>
+        <%= form.date_field :date %>
+      <%= form.submit "Forecast" %>
+    <% end %>
+  </div>
+</div>

@@ -35,3 +35,150 @@ Impetus:
 - I've strayed away from main without making any PR's or Merges.
 - I want a way to review code without it being so permanent.
 - I want the first PR to be as easy to review as possible.
+
+---
+
+## crud-transaction-model-and-views
+
+### 1.5.23
+
+#### In this commit: 
+- We are able to forecast on multiple transactions as well as multiple accounts.
+- Updated `forecast_controller` to `forecasts_controller`.
+- Added an array of `transactions` to the `ForecastedAccount` model.
+- Created a Partial for estimate view. (may want to rename the view)
+- New methods: 
+  - `current_date_precedes_transaction_day?`
+  - `transaction_is_within_forecast?`
+
+#### Next Steps:
+  - [ ] Create clarity in forecast_account_transaction_service logic
+    - [ ] Create tests to refactor with confidence.
+  - [ ] Clean the forecasts_controller.
+    - [ ] Remove uncecessary instance variablles.
+---
+12.27.22 Part 2
+At this point we have the forecast functionality hardcoded for 
+
+  - one account: Savings
+  - many transactions: Mortgage, Bills, Rakib, and Trip to Barbados
+
+Todo:
+
+- [x] Create a couple of other transactions under savings.
+  - [x] Make sure all transactions are performed as expected.
+- [x] Create transactions on a seperate account.
+  - [x] Checking: Gym Membership or Credit Card
+- [x] Create a view for forecast
+  - [x] Should display all accounts with forecasted balance and previous info
+  - [x] Create a temporary memory object that representst the new forecasted       
+    account
+    - [x] A class or an ostruct
+
+In this commit: 
+We created two new models: ForecastedAccount & ForecastedTransaction
+
+---
+12.27.22 
+At this point we have the forecast functionality hardcoded for 
+
+one account: Savings
+many transactions: Mortgage & Bills
+
+Todo:
+
+- [x] Create a couple of other transactions under savings.
+  - [x] Make sure all transactions are performed as expected.
+- Create transactions on a seperate account.
+  - Checking: Gym Membership or Credit Card
+- Create a view for forecast
+  - Should display all accounts with forecasted balance and previous info
+  - Create a temporary memory object that representst the new forecasted       
+    account
+    - A class or an ostruct
+
+In this commit: 
+We are forecasting an account with many transactions.
+
+---
+12.16.22 
+At this point we have the forecast functionality hardcoded for 
+
+one account: Savings
+one transaction: Mortgage
+
+Todo:
+- Create a couple of other transactions under savings.
+  - Make sure all transactions are performed as expected.
+- Create transactions on a seperate account.
+  - Checking: Gym Membership or Credit Card
+- Create a view for forecast
+  - Should display all accounts with forecasted balance and previous info
+  - Create a temporary memory object that representst the new forecasted       
+    account
+    - A class or an ostruct
+---
+What I want to do with this PR is to get a simple rudimentary version of forecast working.
+
+We got a simple version working with one account.
+Definitely want to check the logic on when to process the transaction on the month.
+
+---
+
+Applying bootstrap styles to account cards.
+`sandbox` -> `address-rakib-comment-01-transaction-model-bootstrap-and-css`
+
+---
+
+This can be merged into account-model-hbtm_no_extra_model-self-relationhip-exp.
+
+- [ ] rename accounts_users to accounts_user
+  - This actually looks to be the convention according to:
+    https://stackoverflow.com/questions/11590469/rails-naming-convention-for-join-table
+- [x] make validations
+- [x] reinforce strong params on update
+- [x] before action on setting account
+- [x] make a helper to display a list of parents
+- [ ] finish transaction model
+
+---
+
+Validations made for account
+
+- :name, :description, :balance, presence: true
+- :balance, numericality: true
+- :users, at_least_one_user
+
+Validations for user is handled by devise
+
+---
+
+Strip Whitelisted strong params. Lets do this for update as well.
+
+---
+
+Display Errors for accounts
+
+---
+
+Custom Validation to check that their is at least one user assigned to account.
+
+---
+
+Updated seeds. (they broke after creating the validations. code seems verbose. would like to refactor)
+
+---
+
+Transaction Migration and Model Created.
+
+- [ ] Create views for transactions
+- [ ] Follow the figma for how transaction and form should look for accounts
+
+---
+
+Create a branch to play with bootstrap and style.
+`address-rakib-comment-01-transaction-model` ->
+`address-rakib-comment-01-transaction-model-bootstrap-&-css`
+
+---
+
