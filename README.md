@@ -38,7 +38,6 @@ Impetus:
 
 ---
 
-# README
 ## crud-transaction-model-and-views
 
 ### 1.5.23
