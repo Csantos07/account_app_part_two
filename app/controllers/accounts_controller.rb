@@ -19,14 +19,14 @@ class AccountsController < ApplicationController
 
   def create
     @account = current_user.accounts.create(account_params)
-    @account.users << current_user
-    @account.save
+    @account.users << current_user # this should eventually be redundant
+    @account.save                   # once we have has many through
 
     if @account.errors.any?
       # drawback of this is when I refresh
       # we redirect to the index
-      render :new
-    else
+      render :new      
+    else      
       redirect_to accounts_path
     end
   end

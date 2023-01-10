@@ -17,10 +17,14 @@
     <%= f.text_area :description, placeholder: "Account Description" %><br><br>
   </div>
   <div>
-    <%= f.text_area :balance, placeholder: "Account Balance" %><br><br>
+    <%= f.text_area :balance, placeholder: "Account Balance" %><br><br>    
+  </div>
+  <div>
+    <%= f.collection_select :parent_account_id, Account.all, :id, :name, prompt: 'Select an Account' %>
+    <%#= f.collection_select :provider_id, Provider.order(:name),:id,:name, include_blank: true %>
   </div>
 
-  <%= display_parent_accounts(f) %>
+  <%#= display_parent_accounts(f) %>
   
   <%= f.submit %>
 <% end %>

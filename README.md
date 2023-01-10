@@ -37,6 +37,15 @@ Impetus:
 - I want the first PR to be as easy to review as possible.
 
 ---
+## crud-transaction-madel-and-views-rakib_1-9-23
+
+### 1.9.23
+
+### In this session:
+- My goal is to quickly summarize the code review. 
+- Talk about refactoring the `forecast_account_transaction_service`
+- Get into testing the service as well as controllers and models
+
 
 ## crud-transaction-model-and-views
 
