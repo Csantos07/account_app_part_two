@@ -1,8 +1,9 @@
 class Account < ApplicationRecord
+  has_many :accounts_users
+  has_many :users, through: :accounts_users
   belongs_to :parent_account, class_name: 'Account', optional: true
   has_many :child_accounts, class_name: 'Account', foreign_key: 'parent_account_id', dependent: :destroy
   has_many :transactions, dependent: :destroy
-  has_and_belongs_to_many :users
 
   validates :name, :description, :balance, presence: true
   validates :balance, numericality: true, allow_nil: true

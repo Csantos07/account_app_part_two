@@ -25,7 +25,8 @@ class AccountsController < ApplicationController
     if @account.errors.any?
       # drawback of this is when I refresh
       # we redirect to the index
-      render :new      
+      render :new 
+      # redirect_to new_account_path     
     else      
       redirect_to accounts_path
     end
@@ -46,7 +47,7 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:name, :description, :balance, :parent_account_id, :user_id)
+    params.require(:account).permit(:name, :description, :balance, :parent_account_id, :users)
   end
 
   def set_account

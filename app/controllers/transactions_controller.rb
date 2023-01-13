@@ -18,7 +18,7 @@ class TransactionsController < ApplicationController
 
     date = Date.parse("#{year}-#{month}-#{day}")
     @transaction.date = date
-    @transaction.save!
+    @transaction.save
 
     redirect_to transactions_path
   end

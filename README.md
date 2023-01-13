@@ -39,7 +39,21 @@ Impetus:
 ---
 ## crud-transaction-madel-and-views-rakib_1-9-23
 
+### 1.12.23
+### In this commit
+- Install factory_bot & shoulda_matchers
+- Consider the refresh issue when on the new accounts form
+- Created a new model called accounts_user that serves as our join model
+- Added validation to transaction. Still needs to be seen in the view.
+- Added tests for user and account
+
 ### 1.9.23
+
+### Finished Session
+- Installed rspec and configured
+- Talked about the rendundance of current_user creating an account & then being assigned to that account. ((Source))[https://github.com/Csantos07/account_app_part_two/commit/f3709ff19ff04682526b60d049d4bad8d38e7830#diff-25fe163085ea55de795324d01f141d5e4de00c6a2d3035d75c6e0768af679a2eR22]
+- Use of collection_select to for our dropdown option, where there is no parent account on our account being created.
+  - This should allow us to eliminate our helper
 
 ### In this session:
 - My goal is to quickly summarize the code review. 

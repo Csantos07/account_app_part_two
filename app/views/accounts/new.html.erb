@@ -21,8 +21,11 @@
   </div>
   <div>
     <%= f.collection_select :parent_account_id, Account.all, :id, :name, prompt: 'Select an Account' %>
-    <%#= f.collection_select :provider_id, Provider.order(:name),:id,:name, include_blank: true %>
   </div>
+
+  <%# div> 
+    <%= f.hidden_field :users, value: [current_user]  %> 
+  <%# /div> <%# Attempting to remove the rendundancy in having to assign users when creating accounts
 
   <%#= display_parent_accounts(f) %>
   
