@@ -49,7 +49,7 @@ Impetus:
 
 ### 1.9.23
 
-### Finished Session
+### Finished Session ((source))[https://github.com/Csantos07/account_app_part_two/commit/cf7d5a0999fb9487a7f85af4c3b707733da65455]
 - Installed rspec and configured
 - Talked about the rendundance of current_user creating an account & then being assigned to that account. ((Source))[https://github.com/Csantos07/account_app_part_two/commit/f3709ff19ff04682526b60d049d4bad8d38e7830#diff-25fe163085ea55de795324d01f141d5e4de00c6a2d3035d75c6e0768af679a2eR22]
 - Use of collection_select to for our dropdown option, where there is no parent account on our account being created.
