@@ -40,7 +40,7 @@ Impetus:
 ## crud-transaction-madel-and-views-rakib_1-9-23
 
 ### 1.12.23
-### In this commit
+### In this commit [(source)](https://github.com/Csantos07/account_app_part_two/commit/cf7d5a0999fb9487a7f85af4c3b707733da65455)
 - Install factory_bot & shoulda_matchers
 - Consider the refresh issue when on the new accounts form
 - Created a new model called accounts_user that serves as our join model
@@ -49,7 +49,7 @@ Impetus:
 
 ### 1.9.23
 
-### Finished Session [(source)](https://github.com/Csantos07/account_app_part_two/commit/cf7d5a0999fb9487a7f85af4c3b707733da65455)
+### Finished Session [(source)](https://github.com/Csantos07/account_app_part_two/commit/f3709ff19ff04682526b60d049d4bad8d38e7830)
 - Installed rspec and configured
 - Talked about the rendundance of current_user creating an account & then being assigned to that account. [(source)](https://github.com/Csantos07/account_app_part_two/commit/f3709ff19ff04682526b60d049d4bad8d38e7830#diff-25fe163085ea55de795324d01f141d5e4de00c6a2d3035d75c6e0768af679a2eR22)
 - Use of collection_select to for our dropdown option, where there is no parent account on our account being created.
