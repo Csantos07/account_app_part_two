@@ -39,6 +39,11 @@ Impetus:
 ---
 ## crud-transaction-madel-and-views-rakib_1-9-23
 
+## 1.14.23
+### In this commit [(source)][]
+- I have working factories for my model
+- My first test for the `forecast_account_transaction_service` is running.
+
 ### 1.12.23
 ### In this commit [(source)](https://github.com/Csantos07/account_app_part_two/commit/cf7d5a0999fb9487a7f85af4c3b707733da65455)
 - Install factory_bot & shoulda_matchers

@@ -48,7 +48,7 @@ class ForecastAccountTransactionService
       forecasted_balance = transaction.balance * transaction_count
     end
     
-    [forecasted_balance, transaction_count] 
+    [forecasted_balance, transaction_count]
   end
 
   private

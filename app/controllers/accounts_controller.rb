@@ -17,10 +17,10 @@ class AccountsController < ApplicationController
   def edit
   end
 
-  def create
+  def create    
     @account = current_user.accounts.create(account_params)
-    @account.users << current_user # this should eventually be redundant
-    @account.save                   # once we have has many through
+    @account.users << current_user
+    @account.save
 
     if @account.errors.any?
       # drawback of this is when I refresh

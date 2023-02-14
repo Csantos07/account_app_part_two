@@ -42,5 +42,4 @@ Transaction.create!(balance: 801, name: 'Mortgage', user_id: user_one.id, accoun
 Transaction.create!(balance: 100, name: 'Rakib', user_id: user_one.id, account_id: savings.id, date: Date.parse("2022-12-30"))
 # date = Date.parse("#{year}-#{month}-#{day}")
 Transaction.create!(balance: 400, name: 'Trip To Barbados', user_id: user_one.id, account_id: savings.id, date: Date.today.beginning_of_month)
-
 Transaction.create!(balance: 200, name: 'Fazeek Fitness Membership', user_id: user_one.id, account_id: checking.id, date: Date.parse("2023-2-2"))
